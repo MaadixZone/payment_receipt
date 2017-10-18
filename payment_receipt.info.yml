@@ -1,0 +1,9 @@
+name: payment_receipt
+type: module
+description: Sends and stores a receipt when a payment is received.
+core: 8.x
+package: Commerce
+dependencies:
+  - commerce_payment
+  - entity_print 
+#entity print (>= 8.2)

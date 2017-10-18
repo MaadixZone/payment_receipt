@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - payment_receipt
+  module:
+    - commerce_order
+    - file
+    - payments
+    - invoice_number
+id: commerce_order.field_invoice_pdf
+field_name: invoice_pdf
+entity_type: commerce_order
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: private
+  target_type: file
+module: file
+locked: true
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

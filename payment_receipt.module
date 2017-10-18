@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Contains payment_receipt.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function payment_receipt_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the payment_receipt module.
+    case 'help.page.payment_receipt':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Sends and stores a receipt when a payment is received.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function payment_receipt_theme() {
+  return [
+    'commerce_payment_receipt' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'billing_information' => NULL,
+        'payment_method' => NULL,
+        'totals' => NULL,
+        'last_invoice_url' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ *
+ * Captures the outgoing mail and sets appropriate message body and headers.
+ */
+function payment_receipt_mail($key, &$message, $params) {
+  if (isset($params['headers'])) {
+    $message['headers'] = array_merge($message['headers'], $params['headers']);
+  }
+
+  $message['from'] = $params['from'];
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+}

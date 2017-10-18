@@ -1,0 +1,14 @@
+{
+  "name": "drupal/payment_receipt",
+  "type": "drupal-module",
+  "description": "Sends and stores a receipt when a payment is received.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/payment_receipt",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/payment_receipt",
+    "source": "http://cgit.drupalcode.org/payment_receipt"
+  },
+  "require": { }
+}
